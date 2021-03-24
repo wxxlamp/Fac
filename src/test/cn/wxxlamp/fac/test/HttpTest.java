@@ -21,14 +21,9 @@ public class HttpTest {
         // 获得Http客户端(可以理解为:你得先有一个浏览器;注意:实际上HttpClient与浏览器是不一样的)
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         // 创建Get请求
-        HttpGet httpGet = new HttpGet("https://android.myapp.com/category.htm?orgame=1&categoryId=114");
-        httpGet.setHeader("cookie","Cookie: pgv_pvi=3449244672; pgv_pvid=4897029011; ts_uid=9731321956; JSESSIONID=aaalsQmpAzSv061xzaEHx; pgv_info=ssid=s6087609096; ts_last=android.myapp.com/category.htm; session_uuid=cc17bc5c-4a1b-4a31-b9cd-2aa783fce54a");
-        httpGet.setHeader("Cache-Control","no-cache");
-        httpGet.setHeader("Postman-Token","");
-        httpGet.setHeader("Host","android.myapp.com");
-        httpGet.setHeader("Accept","*/*");
-        httpGet.setHeader("Accept-Encoding","gzip, deflate, br");
-        httpGet.setHeader("Connection","keep-alive");
+        HttpGet httpGet = new HttpGet("https://dl.coolapk.com/down?pn=com.chinamworld.main&id=NDEyNg&h=2414847aqqgq4z&from=click");
+        httpGet.setHeader("User-Agent", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0");
+        httpGet.setHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
         // 响应模型
         CloseableHttpResponse response = null;
         try {

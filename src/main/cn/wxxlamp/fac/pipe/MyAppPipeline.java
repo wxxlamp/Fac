@@ -3,12 +3,10 @@ package cn.wxxlamp.fac.pipe;
 import cn.wxxlamp.fac.model.FadFactory;
 import cn.wxxlamp.fac.model.FinancialAppDesc;
 import cn.wxxlamp.fac.model.bean.MyApp;
-import cn.wxxlamp.fac.model.bean.MyAppHtml;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author wxxlamp

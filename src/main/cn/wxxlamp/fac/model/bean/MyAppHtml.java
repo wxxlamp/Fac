@@ -1,5 +1,6 @@
 package cn.wxxlamp.fac.model.bean;
 
+import com.geccocrawler.gecco.annotation.Attr;
 import com.geccocrawler.gecco.annotation.Gecco;
 import com.geccocrawler.gecco.annotation.HtmlField;
 import com.geccocrawler.gecco.spider.HtmlBean;
