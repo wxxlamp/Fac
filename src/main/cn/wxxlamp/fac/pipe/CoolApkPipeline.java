@@ -3,12 +3,9 @@ package cn.wxxlamp.fac.pipe;
 import cn.wxxlamp.fac.model.FadFactory;
 import cn.wxxlamp.fac.model.FinancialAppDesc;
 import cn.wxxlamp.fac.model.bean.CoolApkDetail;
+import cn.wxxlamp.fac.util.IoUtils;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
-import com.geccocrawler.gecco.request.HttpRequest;
-import com.geccocrawler.gecco.response.HttpResponse;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ import java.util.List;
 @PipelineName("coolApkPipeline")
 public class CoolApkPipeline implements Pipeline<CoolApkDetail> {
 
-    public static final String KEY = "COOL_APK";
+    public static final String KEY = "CoolApk";
 
     @Override
     public void process(CoolApkDetail bean) {
@@ -31,6 +28,7 @@ public class CoolApkPipeline implements Pipeline<CoolApkDetail> {
         fad.setApkName(bean.getApkNameUrl());
         fad.setSize(size);
         fadList.add(fad);
+        IoUtils.writeFile(KEY, fad);
     }
 
     private String substring(String origin, String end) {

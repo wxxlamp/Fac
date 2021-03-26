@@ -3,6 +3,7 @@ package cn.wxxlamp.fac.pipe;
 import cn.wxxlamp.fac.model.FadFactory;
 import cn.wxxlamp.fac.model.FinancialAppDesc;
 import cn.wxxlamp.fac.model.bean.MyApp;
+import cn.wxxlamp.fac.util.IoUtils;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 
@@ -33,8 +34,7 @@ public class MyAppPipeline implements Pipeline<MyApp> {
                 }
             }
         }
-        System.out.println(KEY + ":");
-        FadFactory.getMap(KEY).forEach(System.out::println);
+        IoUtils.writeFile(KEY, FadFactory.getMap(KEY), false);
     }
 
     private String subString(String origin) {

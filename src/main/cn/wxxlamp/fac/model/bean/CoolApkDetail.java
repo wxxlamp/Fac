@@ -12,9 +12,7 @@ import com.geccocrawler.gecco.spider.HtmlBean;
  * @author wxxlamp
  * @date 2021/03/23~20:31
  */
-@Gecco(matchUrl = "https://www.coolapk.com/apk/{detail}", pipelines = {"consolePipeline",
-//        "coolApkPipeline"
-})
+@Gecco(matchUrl = "https://www.coolapk.com/apk/{detail}", pipelines = {"coolApkPipeline"})
 public class CoolApkDetail implements HtmlBean {
 
     private static final long serialVersionUID = 65662335318691818L;
@@ -30,7 +28,9 @@ public class CoolApkDetail implements HtmlBean {
     /**
      * 点击才能获得apkName，302
      */
-    @Href(click = true)
+    @Href(
+//            click = true
+    )
     @HtmlField(cssPath = "body > div.warpper > div:nth-child(2) > div.app_left > div.apk_left_one > div > div > div.apk_topbar_mss > a.show-dialog")
     private String apkNameUrl;
 
@@ -75,7 +75,6 @@ public class CoolApkDetail implements HtmlBean {
     @Override
     public String toString() {
         return "CoolApkDetail{" +
-                "request=" + request +
                 ", name='" + name + '\'' +
                 ", apkNameUrl='" + apkNameUrl + '\'' +
                 ", size='" + size + '\'' +

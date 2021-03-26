@@ -4,5 +4,17 @@
   },
   {
     "url": "https://android.myapp.com/cate/appList.htm?orgame=1&categoryId=114&pageSize=25&pageContext=62"
+  },
+  {
+    "url": "https://www.coolapk.com/apk/finance/?p=1"
+  },
+  {
+    "url": "https://www.wandoujia.com/wdjweb/api/category/more?catId=5023&subCatId=0&page=1&ctoken=xGipLhPfFmewPBkMfZZEV_V8",
+  },
+  {
+    "url": "https://app.mi.com/category/1#page=1"
+  },
+  {
+    "url": "https://app.mi.com/categotyAllListApi?page=1&categoryId=1&pageSize=30"
   }
 ]

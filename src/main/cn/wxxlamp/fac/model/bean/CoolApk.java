@@ -20,9 +20,7 @@ public class CoolApk implements HtmlBean {
     @HtmlField(cssPath = "#game_left > div > a")
     private List<String> detailUrl;
 
-    @Href(
-//            click = true
-    )
+    @Href(click = true)
     @HtmlField(cssPath = "#game_left > div > div.panel-footer.ex-card-footer.text-center > ul > li:nth-child(8) > a")
     private String nextPage;
 

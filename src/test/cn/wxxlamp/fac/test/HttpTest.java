@@ -21,7 +21,7 @@ public class HttpTest {
         // 获得Http客户端(可以理解为:你得先有一个浏览器;注意:实际上HttpClient与浏览器是不一样的)
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         // 创建Get请求
-        HttpGet httpGet = new HttpGet("https://dl.coolapk.com/down?pn=com.chinamworld.main&id=NDEyNg&h=2414847aqqgq4z&from=click");
+        HttpGet httpGet = new HttpGet("https://app.mi.com/categotyAllListApi?page=1&categoryId=1&pageSize=30");
         httpGet.setHeader("User-Agent", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0");
         httpGet.setHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
         // 响应模型

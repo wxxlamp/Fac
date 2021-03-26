@@ -1,12 +1,12 @@
 package cn.wxxlamp.fac.model;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * 其实没啥用了
  * @author wxxlamp
  * @date 2021/03/23~18:06
  */
