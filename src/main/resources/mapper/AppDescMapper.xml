@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间mapper：com.model.professional -->
+<mapper namespace="cn.wxxlamp.fac.dao.AppDescDao">
+    <resultMap id="appDesc" type="cn.wxxlamp.fac.model.AppDesc">
+        <result column="app_id" property="appId"/>
+        <result column="kind_name" property="kindName"/>
+        <result column="tag_name" property="tagName"/>
+        <result column="package_name" property="packageName"/>
+        <result column="app_store" property="appStore"/>
+    </resultMap>
+    <select id="selectAppDescByAppIdAndAppStore" resultType="cn.wxxlamp.fac.model.AppDesc" resultMap="appDesc">
+        select id, app_id, name, kind_name, tag_name, size, package_name, version, url, app_store from app_desc where app_store = #{appStore} and app_id = #{appId}
+    </select>
+    <select id="selectDistinctTagNameFromAppDesc" resultType="java.lang.String">
+        select distinct tag_name from app_desc
+    </select>
+    <select id="selectDistinctNameFromAppDesc" resultType="java.lang.String">
+        select distinct name from app_desc
+    </select>
+    <select id="selectDistinctPackageNameFromAppDesc" resultType="java.lang.String">
+        select distinct package_name from app_desc
+    </select>
+    <select id="selectAppDescByPackageName" resultType="cn.wxxlamp.fac.model.AppDesc" resultMap="appDesc">
+        select * from app_desc where package_name = #{packageName}
+    </select>
+    <update id="updateAppDescById" parameterType="cn.wxxlamp.fac.model.AppDesc">
+        update app_desc set name = #{name}, kind_name = #{kindName}, tag_name = #{tagName}, size = #{size}, package_name = #{packageName}, version = #{version}, url = #{url} where id = #{id}
+    </update>
+    <insert id="insertAppDesc" parameterType="cn.wxxlamp.fac.model.AppDesc" useGeneratedKeys="true">
+        insert into app_desc (app_id, name, kind_name, tag_name, size, package_name, version, url, app_store) values (#{appId}, #{name}, #{kindName}, #{tagName}, #{size}, #{packageName}, #{version}, #{url}, #{appStore})
+    </insert>
+</mapper>

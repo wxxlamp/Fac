@@ -27,3 +27,4 @@ hs_err_pid*
 
 #outFile
 /wxx
+/src/main/resources/mybatis-config.xml
