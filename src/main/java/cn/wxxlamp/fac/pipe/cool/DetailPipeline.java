@@ -4,6 +4,7 @@ import cn.wxxlamp.fac.dao.AppDescMapper;
 import cn.wxxlamp.fac.model.AppDesc;
 import cn.wxxlamp.fac.model.bean.cool.Detail;
 import cn.wxxlamp.fac.util.CypherUtils;
+import cn.wxxlamp.fac.util.UrlUtils;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 
@@ -25,8 +26,8 @@ public class DetailPipeline implements Pipeline<Detail> {
     }
 
     private AppDesc getAppDesc(Detail bean) {
-        String name = this.substring(bean.getName(), "<span ");
-        String size = this.substring(bean.getSize(), " / ");
+        String name = UrlUtils.substring(bean.getName(), "<span ");
+        String size = UrlUtils.substring(bean.getSize(), " / ");
         String packageName = bean.getRequest().getUrl().substring(URL.length());
         AppDesc appDesc = new AppDesc();
         appDesc.setAppStore(APP_STORE);
@@ -45,9 +46,5 @@ public class DetailPipeline implements Pipeline<Detail> {
         appDesc.setUrl(bean.getRequest().getUrl());
         appDesc.setAppId(CypherUtils.getMd5(name + packageName));
         return appDesc;
-    }
-
-    private String substring(String origin, String end) {
-        return origin.substring(0, origin.indexOf(end));
     }
 }

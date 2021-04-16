@@ -13,16 +13,51 @@
         <!--过滤器设置输出的级别-->
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <!-- 设置日志输出的最小级别 -->
-            <param name="levelMin" value="INFO"/>
+            <param name="levelMin" value="ERROR"/>
             <!-- 设置日志输出的最大级别 -->
             <param name="levelMax" value="ERROR"/>
         </filter>
     </appender>
 
 
+    <!-- 日志输出到文件，可以配置多久产生一个新的日志信息文件 -->
+    <appender name="dailyRollingAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <!-- 文件文件全路径名 -->
+        <param name="File" value="\logs\\dailyRollingAppender.log"/>
+        <param name="Append" value="true" />
+        <!-- 设置日志备份频率，默认：为每天一个日志文件 -->
+        <param name="DatePattern" value="'.'yyyy-MM-dd-HH'.log'" />
+        <!--每分钟一个备份-->
+        <!--<param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm'.log'" />-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p][%d{HH:mm:ss SSS}][%c]-[%m]%n"/>
+        </layout>
+        <!--过滤器设置输出的级别-->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <!-- 设置日志输出的最小级别 -->
+            <param name="levelMin" value="DEBUG"/>
+            <!-- 设置日志输出的最大级别 -->
+            <param name="levelMax" value="ERROR"/>
+        </filter>
+    </appender>
+
+
+
+    <!--
+        1. 指定logger的设置，additivity是否遵循缺省的继承机制
+        2. 当additivity="false"时，root中的配置就失灵了，不遵循缺省的继承机制
+        3. 代码中使用Logger.getLogger("logTest")获得此输出器，且不会使用根输出器
+    -->
+    <logger name="logTest" additivity="false">
+        <level value ="INFO"/>
+        <appender-ref ref="dailyRollingAppender"/>
+    </logger>
+
+
     <!-- 根logger的设置，若代码中未找到指定的logger，则会根据继承机制，使用根logger-->
     <root>
         <appender-ref ref="console"/>
+        <appender-ref ref="dailyRollingAppender"/>
     </root>
 
 </log4j:configuration>
