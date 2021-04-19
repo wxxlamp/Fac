@@ -13,7 +13,7 @@
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql://127.0.0.1:3306/wxx?useSSL=false&amp;serverTimezone=Hongkong&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowPublicKeyRetrieval=true" />
                 <property name="username" value="root" />
-                <property name="password" value="2267017560" />
+                <property name="password" value="xxx" />
                 <property name="poolMaximumActiveConnections" value="50"/>
             </dataSource>
         </environment>
