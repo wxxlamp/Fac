@@ -12,10 +12,18 @@ import com.geccocrawler.gecco.request.HttpRequest;
  */
 @PipelineName("chinaIndex")
 public class IndexPipeline implements Pipeline<Index> {
+
+    private static boolean unInit;
+
+    private static final String URL = "http://www.appchina.com/category/";
+
     @Override
     public void process(Index bean) {
-        HttpRequest request = bean.getRequest();
-        TempRequestList.REQUEST_LIST.add(request.subRequest(bean.getAppHref()));
-        TempRequestList.REQUEST_LIST.add(request.subRequest(bean.getGameHref()));
+        if (!unInit) {
+            unInit = true;
+            HttpRequest request = bean.getRequest();
+            TempRequestList.REQUEST_LIST.add(request.subRequest(URL + "30/1_1_1_3_0_0_0.html"));
+            TempRequestList.REQUEST_LIST.add(request.subRequest(URL + "40/1_1_1_3_0_0_0.html"));
+        }
     }
 }

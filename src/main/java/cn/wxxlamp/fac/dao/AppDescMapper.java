@@ -14,6 +14,9 @@ public class AppDescMapper {
     private static final ThreadLocal<AppDescDao> APP_DESC_DAO = new ThreadLocal<>();
 
     public static void mapper(AppDesc appDesc) {
+        if (appDesc == null) {
+            return;
+        }
         if (APP_DESC_DAO.get() == null) {
             APP_DESC_DAO.set(MybatisConfiguration.getDao(AppDescDao.class));
         }

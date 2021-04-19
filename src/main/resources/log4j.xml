@@ -30,12 +30,12 @@
         <!--每分钟一个备份-->
         <!--<param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm'.log'" />-->
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%p][%d{HH:mm:ss SSS}][%c]-[%m]%n"/>
+            <param name="ConversionPattern" value="[%p][%d{yyyy-MM-dd HH:mm:ss SSS}][%c]-[%m]%n"/>
         </layout>
         <!--过滤器设置输出的级别-->
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <!-- 设置日志输出的最小级别 -->
-            <param name="levelMin" value="DEBUG"/>
+            <param name="levelMin" value="INFO"/>
             <!-- 设置日志输出的最大级别 -->
             <param name="levelMax" value="ERROR"/>
         </filter>

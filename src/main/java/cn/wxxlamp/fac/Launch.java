@@ -15,8 +15,7 @@ public class Launch {
                 .run();
         GeccoEngine.create()
                 .classpath("cn.wxxlamp.fac")
-                .interval(1000)
-                .thread(8)
+                .interval(3000)
                 .start(TempRequestList.REQUEST_LIST)
                 .start();
     }

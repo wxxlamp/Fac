@@ -6,6 +6,8 @@ import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.geccocrawler.gecco.request.HttpRequest;
 
+import java.util.Collections;
+
 /**
  * @author wxxlamp
  * @date 2021/04/16~10:48
@@ -21,5 +23,6 @@ public class IndexPipeline implements Pipeline<Index> {
         }
         TempRequestList.REQUEST_LIST.add(request.subRequest("https://shouji.baidu.com/software/510/list_1.html"));
         TempRequestList.REQUEST_LIST.add(request.subRequest("https://shouji.baidu.com/software/509/list_1.html"));
+        Collections.reverse(TempRequestList.REQUEST_LIST);
     }
 }

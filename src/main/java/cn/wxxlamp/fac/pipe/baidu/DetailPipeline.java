@@ -7,6 +7,8 @@ import cn.wxxlamp.fac.model.bean.baidu.Detail;
 import cn.wxxlamp.fac.util.UrlUtils;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * @author wxxlamp
@@ -17,9 +19,12 @@ public class DetailPipeline implements Pipeline<Detail> {
 
     private static final String APP_STORE = "BAI_DU";
 
+    private static final Log LOGGER = LogFactory.getLog(DetailPipeline.class);
+
     @Override
     public void process(Detail bean) {
         AppDesc appDesc = getAppDesc(bean);
+        LOGGER.info(bean.getRequest().getUrl() + ": " + appDesc);
         AppDescMapper.mapper(appDesc);
     }
 
@@ -34,8 +39,8 @@ public class DetailPipeline implements Pipeline<Detail> {
         appDesc.setAppId(appId);
         appDesc.setVersion(bean.getVersion().substring(3));
         appDesc.setName(bean.getName());
-        appDesc.setKindName(bean.getKindName());
-        appDesc.setTagName(bean.getTagName());
+        appDesc.setKindName(bean.getKindName().substring(2));
+        appDesc.setTagName(UrlUtils.substring(bean.getTagName().substring(2), "APP"));
         appDesc.setAppStore(APP_STORE);
         appDesc.setSize(bean.getSize().substring(3));
         appDesc.setPackageName(bean.getPackageName());

@@ -1,17 +1,59 @@
 # Fac
 > Financial app crawler
 
-基于[Gecco](https://github.com/xtuhcy/gecco) 开发的一款针对于市面上各大应用商店的金融类APP爬取程序
-
 ### 爬取应用商店
 1. [豌豆荚](https://www.wandoujia.com/category/5023)
-2. [应用宝](https://android.myapp.com/myapp/search.htm?kw=%E9%87%91%E8%9E%8D)
+2. [百度](https://shouji.baidu.com/)
 3. [酷安](https://www.coolapk.com/apk/finance)
+4. [应用汇](http://www.appchina.com/)
 
-### 关于Gecco的若干问题
-可能是我对该框架的使用不到位
-1. 在请求前应该加上前置处理 _ downloader可以满足
-2. pipeline之后缺少一次聚合处理
+### 各个应用商店对应枚举
 
-### GG
-领导修改了需求，目前要做的是修改爬取所有应用
+<table>
+<tr>
+<td>应用市场</td>
+<td>APP_STORE</td>
+</tr>
+<tr>
+<td>华为</td>
+<td>HUAWEI</td>
+</tr>
+<tr>
+<td>应用宝</td>
+<td>MY_APP</td>
+</tr>
+<tr>
+<td>小米</td>
+<td>MI</td>
+</tr>
+<tr>
+<td>安智</td>
+<td>AN_ZHI</td>
+</tr>
+<tr>
+<td>应用汇</td>
+<td>APP_CHINA</td>
+</tr>
+<tr>
+<td>IUUU9</td>
+<td>IUUU_9</td>
+</tr>
+<tr>
+<td>百度</td>
+<td>BAI_DU</td>
+</tr>
+<tr>
+<td>酷安</td>
+<td>COO_APK</td>
+</tr>
+<tr>
+<td>豌豆荚</td>
+<td>WAN_DOU_JIA</td>
+</tr>
+<tr>
+<td>手工录入</td>
+<td>WXX</td>
+</tr>
+</table>
+
+
